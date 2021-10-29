@@ -10,9 +10,9 @@
 
 import React, {Component} from 'react';
 import {Button, Platform, StyleSheet, Text, View} from 'react-native';
-import ReactNativeBrotherPrinters from 'react-native-brother-printers';
+import {discoverPrinters} from 'react-native-brother-printers';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   state = {
     status: 'starting',
     message: '--'
@@ -25,21 +25,16 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
         <Text>
-          Hi
+          Test Connection
         </Text>
-        <Button title="Test" onPress={() => {
-          ReactNativeBrotherPrinters.sampleMethod('Testing', 123, (message) => {
-            this.setState({
-                status: 'native callback received',
-              message
-            });
+
+        <Button title="Discover Readers" onPress={() => {
+          discoverPrinters().then(() => {
+            console.log("Discover Successful");
+          }).catch(() => {
+            console.log("Discover failed")
           });
         }}/>
-
-        <Text style={styles.welcome}>☆ReactNativeBrotherPrinters example☆</Text>
-        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-        <Text style={styles.instructions}>{this.state.message}</Text>
       </View>
     );
   }
