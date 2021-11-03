@@ -6,6 +6,7 @@ const {ReactNativeBrotherPrinters} = NativeModules;
 
 const {
   discoverPrinters: _discoverPrinters,
+  pingPrinter: _pingPrinter,
   printImage: _printImage,
   printPDF: _printPDF,
 } = ReactNativeBrotherPrinters;
@@ -23,17 +24,34 @@ export async function discoverPrinters(params = {}) {
   return _discoverPrinters(params);
 }
 
-export async function discoverReader() {
-
+/**
+ * Checks if a reader is discoverable
+ *
+ * @param ip
+ *
+ * @return {Promise<void>}
+ */
+export async function pingPrinter(ip) {
+  return _pingPrinter(ip);
 }
 
-export async function printImage(device, params = {}) {
-  return _printImage(device, params);
+/**
+ * Prints an image
+ *
+ * @param device                  Device object
+ * @param uri                     URI of image wanting to be printed
+ * @param params
+ * @param params.autoCut          Boolean if the printer should auto cut the receipt/label
+ *
+ * @return {Promise<*>}
+ */
+export async function printImage(device, uri, params = {}) {
+  return _printImage(device, uri, params);
 }
 
-export async function printPDF(params = {}) {
-  return _printPDF(params);
-}
+// export async function printPDF(device, uri, params = {}) {
+//   return _printPDF(device, uri, params);
+// }
 
 const listeners = new NativeEventEmitter(ReactNativeBrotherPrinters);
 

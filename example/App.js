@@ -9,15 +9,14 @@
  */
 
 import React, {Component} from 'react';
-import {Button, Dimensions, Image, Platform, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {discoverPrinters, printImage, registerBrotherListener} from 'react-native-brother-printers';
+import {Button, ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {discoverPrinters, pingPrinter, printImage, registerBrotherListener} from 'react-native-brother-printers';
 import ViewShot from "react-native-view-shot";
 
 export default class App extends Component {
   state = {
     printer: null,
-    status: 'starting',
-    message: '--'
+    ip: "",
   };
 
   componentDidMount() {
@@ -31,7 +30,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {printer} = this.state;
+    const {printer, ip} = this.state;
 
     return (
       <ScrollView style={{flex: 1}}>
@@ -65,11 +64,11 @@ export default class App extends Component {
           }}/>
 
           {printer && (
-            <Button title="Discover Readers" onPress={() => {
+            <Button title="Print from Memory" onPress={() => {
               this.viewShot.capture().then(uri => {
                 console.log("do something with ", uri);
 
-                printImage(printer, {uri}).then(() => {
+                printImage(printer, uri, {autoCut: false}).then(() => {
                   console.log("Discover Successful");
                 }).catch(() => {
                   console.log("Discover failed")
@@ -77,6 +76,33 @@ export default class App extends Component {
               });
             }}/>
           )}
+
+          <Button title="Print from Manual" onPress={() => {
+            this.viewShot.capture().then(uri => {
+              console.log("do something with ", uri);
+
+              printImage({
+                "ipAddress": "192.123.5.123",
+                "modelName": "Brother QL-810W"
+              }, uri, {autoCut: false}).then(() => {
+                console.log("Discover Successful");
+              }).catch(() => {
+                console.log("Discover failed")
+              });
+            });
+          }}/>
+
+          <TextInput placeholder="Ip Address" value={ip} onChangeText={(ip) => this.setState({ip})}/>
+
+          <Button title="Test Printer" onPress={() => {
+            pingPrinter(ip).then(() => {
+              alert("We found the printer");
+            }).catch((err) => {
+              console.log("Printer could not be accessed");
+
+              console.log("Printer is dead", err);
+            });
+          }}/>
         </View>
       </ScrollView>
     );

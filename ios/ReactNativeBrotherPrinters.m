@@ -5,7 +5,9 @@
 
 @implementation ReactNativeBrotherPrinters
 
-NSString *const DISCOVER_ERROR = @"DISCOVER_ERROR";
+NSString *const DISCOVER_READERS_ERROR = @"DISCOVER_READERS_ERROR";
+NSString *const DISCOVER_READER_ERROR = @"DISCOVER_READER_ERROR";
+NSString *const PRINT_ERROR = @"PRINT_ERROR";
 
 - (dispatch_queue_t)methodQueue
 {
@@ -56,11 +58,29 @@ RCT_REMAP_METHOD(discoverPrinters, discoverOptions:(NSDictionary *)options resol
     if (response == RET_TRUE) {
         resolve(Nil);
     } else {
-        reject(DISCOVER_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
+        reject(DISCOVER_READERS_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
     }
 }
 
-RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printImageOptions:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_REMAP_METHOD(pingPrinter, printerAddress:(NSString *)ip resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    BRLMChannel *channel = [[BRLMChannel alloc] initWithWifiIPAddress:ip];
+
+    BRLMPrinterDriverGenerateResult *driverGenerateResult = [BRLMPrinterDriverGenerator openChannel:channel];
+    if (driverGenerateResult.error.code != BRLMOpenChannelErrorCodeNoError ||
+        driverGenerateResult.driver == nil) {
+        
+        NSLog(@"%@", @(driverGenerateResult.error.code));
+        
+        return reject(DISCOVER_READER_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
+    }
+
+    NSLog(@"We were able to discover a printer");
+    
+    resolve(Nil);
+}
+
+RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printerUri: (NSString *)imageStr printImageOptions:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     NSLog(@"Called the printImage function");
     BRPtouchDeviceInfo *deviceInfo = [self deserializeDeviceInfo:device];
@@ -74,10 +94,6 @@ RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printImageOptions
         return;
     }
 
-    _imageStr = [RCTConvert NSString:options[@"uri"]];
-
-    NSLog(@"We opened the path");
-
     NSString * paperSize = [self defaultPaperSize:deviceInfo.strModelName];
     NSLog(@"Paper Size: %@", paperSize);
 
@@ -87,14 +103,25 @@ RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printImageOptions
     BRLMQLPrintSettings *qlSettings = [[BRLMQLPrintSettings alloc] initDefaultPrintSettingsWithPrinterModel:model];
 
     qlSettings.autoCut = true;
+    
+    NSLog(@"Cut Options %@", options[@"autoCut"]);
+    if (options[@"autoCut"]) {
+        qlSettings.autoCut = [options[@"autoCut"] boolValue];
+    }
 
-    NSURL *url = [NSURL URLWithString:_imageStr];
+    NSURL *url = [NSURL URLWithString:imageStr];
     BRLMPrintError *printError = [printerDriver printImageWithURL:url settings:qlSettings];
 
     if (printError.code != BRLMPrintErrorCodeNoError) {
         NSLog(@"Error - Print Image: %@", printError);
+        
+        NSError* error = [NSError errorWithDomain:@"com.react-native-brother-printers.rn" code:1 userInfo:[NSDictionary dictionaryWithObject:printError.description forKey:NSLocalizedDescriptionKey]];
+
+        reject(PRINT_ERROR, @"There was an error trying to print the image", error);
     } else {
         NSLog(@"Success - Print Image");
+        
+        resolve(Nil);
     }
 
     [printerDriver closeChannel];
