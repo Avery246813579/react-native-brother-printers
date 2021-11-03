@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Brother QL-710W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>17mmx54mm</string>
+			<string>17mmx87mm</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48mm</string>
+			<string>52mmx29mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>60mmx86mm</string>
+		</array>
+	</dict>
+	<key>Brother QL-720NW</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>17mmx54mm</string>
+			<string>17mmx87mm</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48mm</string>
+			<string>52mmx29mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>60mmx86mm</string>
+		</array>
+	</dict>
+	<key>Brother TD-2120N</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-2130N</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-4040</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-3150</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-3050</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-3150Ai</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-3050Ai</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother PJ-673</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A4_CutSheet</string>
+			<string>A4_Roll</string>
+			<string>A4_PerforatedRoll</string>
+			<string>A4_PerforatedRollRetract</string>
+			<string>LETTER_CutSheet</string>
+			<string>LETTER_Roll</string>
+			<string>LETTER_PerforatedRoll</string>
+			<string>LETTER_PerforatedRollRetract</string>
+			<string>LEGAL_CutSheet</string>
+			<string>LEGAL_Roll</string>
+			<string>LEGAL_PerforatedRoll</string>
+			<string>LEGAL_PerforatedRollRetract</string>
+			<string>A5_CutSheet</string>
+			<string>CUSTOM</string>
+		</array>
+	</dict>
+	<key>Brother PT-E550W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-P750W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-D800W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+			<string>36mm</string>
+			<string>FL 21mm x 45mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-E800W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+			<string>36mm</string>
+			<string>FL 21mm x 45mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-E850TKW</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+			<string>36mm</string>
+			<string>PVC Dia 6.5mm</string>
+			<string>PVC Dia 6.0mm</string>
+			<string>PVC Dia 5.0mm</string>
+			<string>PVC Dia 4.0mm</string>
+			<string>PVC Dia 3.5mm</string>
+			<string>PVC Dia 3.0mm</string>
+			<string>PVC Dia 2.5mm</string>
+			<string>FL 21mm x 45mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-P900W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+			<string>36mm</string>
+			<string>FL 21mm x 45mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-P950NW</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+			<string>36mm</string>
+			<string>FL 21mm x 45mm</string>
+		</array>
+	</dict>
+	<key>Brother PJ-773</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A4_CutSheet</string>
+			<string>A4_Roll</string>
+			<string>A4_PerforatedRoll</string>
+			<string>A4_PerforatedRollRetract</string>
+			<string>LETTER_CutSheet</string>
+			<string>LETTER_Roll</string>
+			<string>LETTER_PerforatedRoll</string>
+			<string>LETTER_PerforatedRollRetract</string>
+			<string>LEGAL_CutSheet</string>
+			<string>LEGAL_Roll</string>
+			<string>LEGAL_PerforatedRoll</string>
+			<string>LEGAL_PerforatedRollRetract</string>
+			<string>A5_CutSheet</string>
+			<string>A5_LANDSCAPE_CutSheet</string>
+			<string>CUSTOM</string>
+		</array>
+	</dict>
+	<key>Brother PJ-763</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A4_CutSheet</string>
+			<string>A4_Roll</string>
+			<string>A4_PerforatedRoll</string>
+			<string>A4_PerforatedRollRetract</string>
+			<string>LETTER_CutSheet</string>
+			<string>LETTER_Roll</string>
+			<string>LETTER_PerforatedRoll</string>
+			<string>LETTER_PerforatedRollRetract</string>
+			<string>LEGAL_CutSheet</string>
+			<string>LEGAL_Roll</string>
+			<string>LEGAL_PerforatedRoll</string>
+			<string>LEGAL_PerforatedRollRetract</string>
+			<string>A5_CutSheet</string>
+			<string>A5_LANDSCAPE_CutSheet</string>
+			<string>CUSTOM</string>
+		</array>
+	</dict>
+	<key>Brother MW-260MF</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A6</string>
+		</array>
+	</dict>
+	<key>Brother MW-145MF</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A7</string>
+		</array>
+	</dict>
+	<key>Brother RJ-4030Ai</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-2050</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-2140</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-2150</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother QL-810W</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>62mmRB</string>
+			<string>17mmx54mm</string>
+			<string>17mmx87mm</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48mm</string>
+			<string>52mmx29mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>60mmx86mm</string>
+			<string>54mmx29mm</string>
+		</array>
+	</dict>
+	<key>Brother QL-820NWB</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>62mmRB</string>
+			<string>17mmx54mm</string>
+			<string>17mmx87mm</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48mm</string>
+			<string>52mmx29mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>60mmx86mm</string>
+			<string>54mmx29mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-P710BT</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+		</array>
+	</dict>
+	<key>Brother QL-1110NWB</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>102mm</string>
+			<string>103mm</string>
+			<string>17mmx54</string>
+			<string>17mmx87</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48</string>
+			<string>52mmx29mm</string>
+			<string>60mmx86mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>102mmx51mm</string>
+			<string>102mmx152mm</string>
+			<string>103mmx164mm</string>
+		</array>
+	</dict>
+	<key>Brother QL-1115NWB</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+			<string>12mm</string>
+			<string>29mm</string>
+			<string>38mm</string>
+			<string>50mm</string>
+			<string>54mm</string>
+			<string>62mm</string>
+			<string>102mm</string>
+			<string>103mm</string>
+			<string>17mmx54</string>
+			<string>17mmx87</string>
+			<string>23mmx23mm</string>
+			<string>29mmx42mm</string>
+			<string>29mmx90mm</string>
+			<string>38mmx90mm</string>
+			<string>39mmx48</string>
+			<string>52mmx29mm</string>
+			<string>60mmx86mm</string>
+			<string>62mmx29mm</string>
+			<string>62mmx100mm</string>
+			<string>102mmx51mm</string>
+			<string>102mmx152mm</string>
+			<string>103mmx164mm</string>
+			<string>DT 90mm</string>
+			<string>DT 102mm</string>
+			<string>DT 102mmx51mm</string>
+			<string>DT 102mmx152mm</string>
+		</array>
+	</dict>
+	<key>Brother PT-P300BT</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+		</array>
+	</dict>
+	<key>Brother RJ-4230B</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother RJ-4250WB</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-4410D</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-4420DN</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-4510D</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-4520DN</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother TD-4550DNWB</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>Custom</string>
+		</array>
+	</dict>
+	<key>Brother MW-170</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A7</string>
+		</array>
+	</dict>
+	<key>Brother MW-270</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>A6</string>
+		</array>
+	</dict>
+	<key>Brother PT-P715eBT</key>
+	<dict>
+		<key>PaperSize</key>
+		<array>
+			<string>3.5mm</string>
+			<string>6mm</string>
+			<string>9mm</string>
+			<string>12mm</string>
+			<string>18mm</string>
+			<string>24mm</string>
+			<string>HS_5.8mm</string>
+			<string>HS_8.8mm</string>
+			<string>HS_11.7mm</string>
+			<string>HS_17.7mm</string>
+			<string>HS_23.6mm</string>
+		</array>
+	</dict>
+</dict>
+</plist>

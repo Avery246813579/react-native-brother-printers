@@ -9,33 +9,76 @@
  */
 
 import React, {Component} from 'react';
-import {Button, Platform, StyleSheet, Text, View} from 'react-native';
-import {discoverPrinters} from 'react-native-brother-printers';
+import {Button, Dimensions, Image, Platform, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {discoverPrinters, printImage, registerBrotherListener} from 'react-native-brother-printers';
+import ViewShot from "react-native-view-shot";
 
 export default class App extends Component {
   state = {
+    printer: null,
     status: 'starting',
     message: '--'
   };
 
   componentDidMount() {
+    registerBrotherListener("onDiscoverPrinters", (brotherPrinters) => {
+      console.log("We found these listeners", brotherPrinters);
+
+      if (brotherPrinters.length > 0) {
+        this.setState({printer: brotherPrinters[0]});
+      }
+    });
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>
-          Test Connection
-        </Text>
+    const {printer} = this.state;
 
-        <Button title="Discover Readers" onPress={() => {
-          discoverPrinters().then(() => {
-            console.log("Discover Successful");
-          }).catch(() => {
-            console.log("Discover failed")
-          });
-        }}/>
-      </View>
+    return (
+      <ScrollView style={{flex: 1}}>
+        <ViewShot ref={(e) => {
+          this.viewShot = e;
+        }} options={{format: "jpg", quality: 0.9}}>
+          <Text style={{fontSize: 24}}>
+            Hello
+          </Text>
+
+          <Text style={{fontSize: 24}}>
+            This is a test
+          </Text>
+
+          <Text style={{fontSize: 24}}>
+            What is your name
+          </Text>
+        </ViewShot>
+
+        <View style={styles.container}>
+          <Text>
+            Test Connection
+          </Text>
+
+          <Button title="Discover Readers" onPress={() => {
+            discoverPrinters({}).then(() => {
+              console.log("Discover Successful");
+            }).catch(() => {
+              console.log("Discover failed")
+            });
+          }}/>
+
+          {printer && (
+            <Button title="Discover Readers" onPress={() => {
+              this.viewShot.capture().then(uri => {
+                console.log("do something with ", uri);
+
+                printImage(printer, {uri}).then(() => {
+                  console.log("Discover Successful");
+                }).catch(() => {
+                  console.log("Discover failed")
+                });
+              });
+            }}/>
+          )}
+        </View>
+      </ScrollView>
     );
   }
 }

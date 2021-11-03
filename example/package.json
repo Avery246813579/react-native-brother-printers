@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.66.1",
-    "react-native-brother-printers": "link:../"
+    "react-native-brother-printers": "link:../",
+    "react-native-view-shot": "^3.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

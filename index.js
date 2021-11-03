@@ -6,6 +6,8 @@ const {ReactNativeBrotherPrinters} = NativeModules;
 
 const {
   discoverPrinters: _discoverPrinters,
+  printImage: _printImage,
+  printPDF: _printPDF,
 } = ReactNativeBrotherPrinters;
 
 /**
@@ -19,4 +21,22 @@ const {
  */
 export async function discoverPrinters(params = {}) {
   return _discoverPrinters(params);
+}
+
+export async function discoverReader() {
+
+}
+
+export async function printImage(device, params = {}) {
+  return _printImage(device, params);
+}
+
+export async function printPDF(params = {}) {
+  return _printPDF(params);
+}
+
+const listeners = new NativeEventEmitter(ReactNativeBrotherPrinters);
+
+export function registerBrotherListener(key, method) {
+  return listeners.addListener(key, method);
 }
