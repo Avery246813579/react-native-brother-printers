@@ -1,0 +1,5 @@
+# Remove the example
+example
+
+# Remove the prettier settings
+.prettierrc.js

@@ -1,8 +1,8 @@
 {
   "name": "react-native-brother-printers",
   "title": "React Native Brother Printers",
-  "version": "1.0.0",
-  "description": "TODO",
+  "version": "0.0.1-rc.1",
+  "description": "A package that allows you to printer with brother printers",
   "main": "index.js",
   "files": [
     "README.md",
@@ -16,18 +16,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-brother-printers.git",
-    "baseUrl": "https://github.com/github_account/react-native-brother-printers"
+    "url": "git+https://github.com/Avery246813579/react-native-brother-printers.git",
+    "baseUrl": "https://github.com/Avery246813579/react-native-brother-printers"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "brother",
+    "brother-printers",
+    "printers"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Avery Durrant",
+    "email": "avery@dripos.com"
   },
   "license": "MIT",
-  "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": ">=16.8.1",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "prettier": "^2.2.1"
   }
 }
