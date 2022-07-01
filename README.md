@@ -26,7 +26,7 @@ the printer name, or V6 to enable ipv6 detection. Both parameters can be left bl
 import {discoverPrinters} from 'react-native-brother-printers';
 
 discoverPrinters({
-  printerName: "My Printer 123",
   V6: true,
 });
 ```
+
