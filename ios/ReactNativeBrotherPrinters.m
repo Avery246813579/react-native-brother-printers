@@ -69,14 +69,14 @@ RCT_REMAP_METHOD(pingPrinter, printerAddress:(NSString *)ip resolver:(RCTPromise
     BRLMPrinterDriverGenerateResult *driverGenerateResult = [BRLMPrinterDriverGenerator openChannel:channel];
     if (driverGenerateResult.error.code != BRLMOpenChannelErrorCodeNoError ||
         driverGenerateResult.driver == nil) {
-        
+
         NSLog(@"%@", @(driverGenerateResult.error.code));
-        
+
         return reject(DISCOVER_READER_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
     }
 
     NSLog(@"We were able to discover a printer");
-    
+
     resolve(Nil);
 }
 
@@ -94,33 +94,36 @@ RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printerUri: (NSSt
         return;
     }
 
-    NSString * paperSize = [self defaultPaperSize:deviceInfo.strModelName];
-    NSLog(@"Paper Size: %@", paperSize);
-
     BRLMPrinterDriver *printerDriver = driverGenerateResult.driver;
 
     BRLMPrinterModel model = [BRLMPrinterClassifier transferEnumFromString:deviceInfo.strModelName];
     BRLMQLPrintSettings *qlSettings = [[BRLMQLPrintSettings alloc] initDefaultPrintSettingsWithPrinterModel:model];
 
     qlSettings.autoCut = true;
-    
-    NSLog(@"Cut Options %@", options[@"autoCut"]);
+
     if (options[@"autoCut"]) {
         qlSettings.autoCut = [options[@"autoCut"] boolValue];
     }
+
+    if (options[@"labelSize"]) {
+        qlSettings.labelSize = [options[@"labelSize"] intValue];
+    }
+
+    NSLog(@"Auto Cut: %@, Label Size: %@", options[@"autoCut"], options[@"labelSize"]);
+
 
     NSURL *url = [NSURL URLWithString:imageStr];
     BRLMPrintError *printError = [printerDriver printImageWithURL:url settings:qlSettings];
 
     if (printError.code != BRLMPrintErrorCodeNoError) {
         NSLog(@"Error - Print Image: %@", printError);
-        
+
         NSError* error = [NSError errorWithDomain:@"com.react-native-brother-printers.rn" code:1 userInfo:[NSDictionary dictionaryWithObject:printError.description forKey:NSLocalizedDescriptionKey]];
 
         reject(PRINT_ERROR, @"There was an error trying to print the image", error);
     } else {
         NSLog(@"Success - Print Image");
-        
+
         resolve(Nil);
     }
 
@@ -149,20 +152,6 @@ RCT_REMAP_METHOD(printImage, deviceInfo:(NSDictionary *)device printerUri: (NSSt
     [self sendEventWithName:@"onDiscoverPrinters" body:_serializedArray];
 
     return;
-}
-
-- (NSString *)defaultPaperSize: (NSString *) printer
-{
-    NSString *result = nil;
-
-    NSString *pathInPrintSettings   = [[NSBundle mainBundle] pathForResource:@"PrinterList" ofType:@"plist"];
-    if (pathInPrintSettings) {
-        NSDictionary *priterListArray = [NSDictionary dictionaryWithContentsOfFile:pathInPrintSettings];
-        if (priterListArray) {
-            result = [[[priterListArray objectForKey:printer] objectForKey:@"PaperSize"] objectAtIndex:0];
-        }
-    }
-    return result;
 }
 
 - (NSDictionary *) serializeDeviceInfo:(BRPtouchDeviceInfo *)device {
