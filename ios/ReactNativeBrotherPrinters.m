@@ -9,11 +9,6 @@ NSString *const DISCOVER_READERS_ERROR = @"DISCOVER_READERS_ERROR";
 NSString *const DISCOVER_READER_ERROR = @"DISCOVER_READER_ERROR";
 NSString *const PRINT_ERROR = @"PRINT_ERROR";
 
-- (dispatch_queue_t)methodQueue
-{
-    return dispatch_get_main_queue();
-}
-
 RCT_EXPORT_MODULE()
 
 -(void)startObserving {
@@ -34,32 +29,34 @@ RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(discoverPrinters, discoverOptions:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSLog(@"Called the function");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"Called the function");
 
-    _brotherDeviceList = [[NSMutableArray alloc] initWithCapacity:0];
+        _brotherDeviceList = [[NSMutableArray alloc] initWithCapacity:0];
 
-    _networkManager = [[BRPtouchNetworkManager alloc] init];
-    _networkManager.delegate = self;
+        _networkManager = [[BRPtouchNetworkManager alloc] init];
+        _networkManager.delegate = self;
 
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"PrinterList" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"PrinterList" ofType:@"plist"];
 
-    if (path) {
-        NSDictionary *printerDict = [NSDictionary dictionaryWithContentsOfFile:path];
-        NSArray *printerList = [[NSArray alloc] initWithArray:printerDict.allKeys];
+        if (path) {
+            NSDictionary *printerDict = [NSDictionary dictionaryWithContentsOfFile:path];
+            NSArray *printerList = [[NSArray alloc] initWithArray:printerDict.allKeys];
 
-        [_networkManager setPrinterNames:printerList];
-    } else {
-        NSLog(@"Could not find PrinterList.plist");
-    }
+            [_networkManager setPrinterNames:printerList];
+        } else {
+            NSLog(@"Could not find PrinterList.plist");
+        }
 
-    //    Start printer search
-    int response = [_networkManager startSearch: 5.0];
+        //    Start printer search
+        int response = [_networkManager startSearch: 5.0];
 
-    if (response == RET_TRUE) {
-        resolve(Nil);
-    } else {
-        reject(DISCOVER_READERS_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
-    }
+        if (response == RET_TRUE) {
+            resolve(Nil);
+        } else {
+            reject(DISCOVER_READERS_ERROR, @"A problem occured when trying to execute discoverPrinters", Nil);
+        }
+    });
 }
 
 RCT_REMAP_METHOD(pingPrinter, printerAddress:(NSString *)ip resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
